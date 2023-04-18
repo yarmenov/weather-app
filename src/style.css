@@ -95,9 +95,9 @@ hr {
 }
 
 a {
-  color: white;
+  color: blue;
   text-decoration: none;
-  transition: all 150ms ease-in-out;
+  text-align: right;
 }
 a:hover {
   text-decoration: underline;
