@@ -1,0 +1,104 @@
+h1 {
+  font-size: 40px;
+  clear: left;
+  padding: 20px;
+  margin-left: 2px;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-align: center;
+  font-size: 25px;
+}
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 0;
+}
+.different {
+  position: relative;
+  top: -69px;
+  right: -235px;
+}
+.style {
+  position: relative;
+  top: -60px;
+  right: -230px;
+}
+.search {
+  background: white;
+  color: #606470;
+  padding: 7px;
+  border: none;
+}
+.search:hover {
+  background: white;
+  color: #757a79;
+}
+.wrap {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 400px;
+  height: 800px;
+  display: block;
+  margin: 50px auto;
+  background: linear-gradient(
+    89deg,
+    rgb(21, 74, 189) 0.1%,
+    rgb(26, 138, 211) 51.5%,
+    rgb(72, 177, 234) 100.2%
+  );
+  color: white;
+}
+
+.main-cloud {
+  display: block;
+
+  text-align: center;
+  display: block;
+  width: 398px;
+  font-size: 100px;
+  margin-top: -11px;
+}
+
+.word {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 5px;
+  font-style: italic;
+  text-transform: capitalize;
+}
+.details {
+  text-align: center;
+  font-size: 18px;
+  margin-top: -20px;
+  margin-bottom: 35px;
+}
+.space {
+  margin-left: 2px;
+}
+.monday {
+  font-size: 20px;
+}
+.col-auto,
+.location {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+hr {
+  margin: 0.5rem 0;
+  color: inherit;
+  border: 0;
+  border-top: var(--bs-border-width) solid;
+  opacity: 0.25;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+}
+a:hover {
+  text-decoration: underline;
+}
