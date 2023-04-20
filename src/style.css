@@ -97,8 +97,12 @@ hr {
 a {
   color: blue;
   text-decoration: none;
-  text-align: right;
 }
 a:hover {
   text-decoration: underline;
+}
+.footer {
+  text-align: center;
+  font-size: 16px;
+  margin: -40px;
 }
