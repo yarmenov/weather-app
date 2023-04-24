@@ -21,13 +21,13 @@ if (hours < 10) {
 h2.innerHTML = `${day} ${hours}:${minutes}`;
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(response.data.temperature.current);
   let p = document.querySelector("p");
   p.innerHTML = `${temperature}℃`;
   document.querySelector(
     "h1"
-  ).innerHTML = `<i class="fa-sharp fa-solid fa-location-dot"></i> ${response.data.name}`;
-  let weatherAppDescription = response.data.weather[0].description;
+  ).innerHTML = `<i class="fa-sharp fa-solid fa-location-dot"></i> ${response.data.city}`;
+  let weatherAppDescription = response.data.condition.description;
   let description = document.querySelector("#description");
   description.innerHTML = `${weatherAppDescription}`;
 
@@ -36,17 +36,23 @@ function showTemperature(response) {
   let details = document.querySelector("#wind");
   details.innerHTML = `Wind: ${windSpeed} mph`;
 
-  let humidity = response.data.main.humidity;
+  let humidity = response.data.temperature.humidity;
   let rain = document.querySelector("#rain");
   rain.innerHTML = ` | Humidity: ${humidity}%`;
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    );
 }
 
 function button(event) {
   event.preventDefault();
-  let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
+  let apiKey = "3ea9t1312bbo2ff30fa1b499f43ab01f";
   let city = document.querySelector("#search-text-input").value;
   let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showTemperature);
 }
@@ -56,31 +62,33 @@ let searchButton = document.querySelector("#submit");
 searchButton.addEventListener("click", button);
 
 function searchCity(city) {
-  let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let units = "metric";
+  let apiKey = "3ea9t1312bbo2ff30fa1b499f43ab01f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
 }
 
 function showPosition(position) {
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
-  let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
+  let apiKey = "3ea9t1312bbo2ff30fa1b499f43ab01f";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
+
   axios.get(apiUrl).then(showCurrentTemp);
 }
 
 function showCurrentTemp(response) {
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(response.data.temperature.current);
   let p = document.querySelector("p");
   p.innerHTML = `${temperature}℃`;
   document.querySelector(
     "h1"
-  ).innerHTML = `<i class="fa-sharp fa-solid fa-location-dot"></i> ${response.data.name}`;
+  ).innerHTML = `<i class="fa-sharp fa-solid fa-location-dot"></i> ${response.data.city}`;
 
-  let weatherAppDescription = response.data.weather[0].description;
+  let weatherAppDescription = response.data.condition.description;
   let description = document.querySelector("#description");
   description.innerHTML = `${weatherAppDescription}`;
 
@@ -89,9 +97,16 @@ function showCurrentTemp(response) {
   let details = document.querySelector("#wind");
   details.innerHTML = `Wind: ${windSpeed} mph`;
 
-  let humidity = response.data.main.humidity;
+  let humidity = response.data.temperature.humidity;
   let rain = document.querySelector("#rain");
   rain.innerHTML = ` | Humidity: ${humidity}%`;
+
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    );
 }
 
 function showCurrentWeather(event) {

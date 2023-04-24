@@ -54,10 +54,10 @@ p {
 .main-cloud {
   display: block;
 
-  text-align: center;
+  margin: 0 auto;
   display: block;
-  width: 398px;
-  font-size: 100px;
+  width: 113px;
+  font-size: 20px;
   margin-top: -11px;
 }
 
