@@ -15,6 +15,15 @@ p {
   font-size: 60px;
   margin-bottom: 0;
 }
+.weather-temperature {
+  justify-content: center;
+}
+.active {
+  color: white;
+}
+.active:hover {
+  text-decoration: none;
+}
 .different {
   position: relative;
   top: -69px;
@@ -49,6 +58,12 @@ p {
     rgb(72, 177, 234) 100.2%
   );
   color: white;
+}
+
+.units {
+  position: relative;
+  font-size: 16px;
+  top: 19px;
 }
 
 .main-cloud {
