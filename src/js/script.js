@@ -20,7 +20,25 @@ if (hours < 10) {
 }
 h2.innerHTML = `${day} ${hours}:${minutes}`;
 
-function showTemperature(response) {celsiusTemperature=response.data.temperature.current;
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+  let forecastHTML = ``;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="row">
+      <div class="col-4 monday">${day}</div>
+
+          <div class="col-4"><i class="fa-solid fa-sun"></i></div>
+          <div class="col-4">18℃</div></div>
+          <hr />`;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function showTemperature(response) {
+  celsiusTemperature = response.data.temperature.current;
   let temperature = Math.round(celsiusTemperature);
   let p = document.querySelector("p");
   p.innerHTML = `${temperature}`;
@@ -129,7 +147,8 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);}
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
 
 let celsiusTemperature = null;
 let currentButton = document.querySelector("#current");
@@ -141,6 +160,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-
-
 searchCity("London");
+displayForecast();
