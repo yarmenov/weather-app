@@ -18,12 +18,7 @@ p {
 .weather-temperature {
   justify-content: center;
 }
-.active {
-  color: white;
-}
-.active:hover {
-  text-decoration: none;
-}
+
 .different {
   position: relative;
   top: -69px;
