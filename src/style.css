@@ -19,16 +19,6 @@ p {
   justify-content: center;
 }
 
-.different {
-  position: relative;
-  top: -69px;
-  right: -235px;
-}
-.style {
-  position: relative;
-  top: -60px;
-  right: -230px;
-}
 .search {
   background: white;
   color: #606470;
