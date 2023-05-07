@@ -89,7 +89,12 @@ p {
 }
 .monday {
   font-size: 20px;
+  margin-left: 15px;
 }
+.col-4 {
+  margin-left: 20px;
+}
+
 .col-auto,
 .location {
   margin-left: 10px;
